@@ -51,7 +51,12 @@
              
              
             </ul>
+            
+            {% if profile %}
+            <a href="{% url 'deconnexion' %}" title="Deconnexion" class="btn btn-danger text-white" style="border: 0px;border-radius: 7px;"><i class="fas fa-sign-out-alt"></i></a>
+            {% else %}
             <p style="color:#fff; font-weight: bold;font-style: italic;font-size: 12px;">Version 0901025</p>
+            {% endif %}
           </div>
         </div>
       </nav>
@@ -59,7 +64,7 @@
       
         <!--login page-->
         <div class="row" x-show="currentPage === 'home'" x-transition  style="display: none;">
-          <div class="col-7" style="height: 91vh;background: url(https://www.actualidadecommerce.com/wp-content/uploads/2016/02/redes-sociales-ecommerce.jpg);background-repeat: no-repeat;background-size: cover;">
+          <div class="col-7" style="height: 91vh;background: url('/static/images/ban.jpeg');background-repeat: no-repeat;background-size: cover;">
             
           </div>
           {% if profile %}
@@ -70,18 +75,16 @@
                 </div>
 
                 <div class="col-6 offset-3 text-center" style="margin-bottom: -50px;z-index: 1;">
-                  <div style="border: 3px solid #d2b4de;margin: auto;border-radius: 50%/50%;width: 100px;height: 100px; background-color: #3498db; background: url('{{profile.photo.url}}');background-repeat: no-repeat;background-size: cover;background-position: center;" class="p-2">
+                  <div style="border: 3px solid #d2b4de;margin: auto;border-radius: 50%/50%;width: 100px;height: 100px; background-color: #ccc; background: url('{{profile.photo.url}}');background-repeat: no-repeat;background-size: cover;background-position: center;" class="p-2">
                     
                   </div>
                 </div>
-                <div class="col-8 offset-2 text-center p-3 pt-5 card" style="border-radius: 5px;min-height: 30vh;background-color: #fff;">
-                  <h1 style="font-size: 35px;"  class="pt-4 text-warning">{{profile.user.username}}</h1>
+                <div class="col-8 offset-2 text-center p-3 pt-5 card" style="border-radius: 5px;min-height: 30vh;background-color:#d2b4de;">
+                  <h1 style="font-size: 35px;color: #8e44ad;"  class="pt-4">{{profile.user.username}}</h1>
                   <p style="text-align: center;font-size: 12px;"><i class="fas fa-check-circle text-success"></i> Vous etes connecter</p>
+                  <a href="{% url 'home' %}" class="col btn btn-warning text-white p-3" style="margin: auto;width: 95%;border: 0px;border-radius: 0px;font-weight: bold;" >Acceder au Tchat <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="col-12 p-3">
-                  <button class="col btn btn-primary text-white" style="border: 0px;border-radius: 7px;"><i class="fas fa-comment"></i> Acceder au Tchat</button>
-                  <a href="{% url 'deconnexion' %}" class="col btn btn-danger text-white" style="border: 0px;border-radius: 7px;"><i class="fas fa-sign-out-alt"></i> Se deconnecter</a>
-                </div>
+                
               </div>
                 
                 

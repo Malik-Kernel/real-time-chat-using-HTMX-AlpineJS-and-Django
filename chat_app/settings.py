@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+import os
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -111,6 +111,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static'),
+]
 
 
 # Static files (CSS, JavaScript, Images)
@@ -119,6 +122,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL="media/"
 MEDIA_ROOT=BASE_DIR / 'media/'
+LOGIN_URL='welcom'
+LOGOUT_URL='welcom'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

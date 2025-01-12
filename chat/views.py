@@ -134,7 +134,7 @@ class Registration(View):
                         user=User.objects.create_user(username=pseudo, password=password)
                         data={
                           "user":user,
-                          "photo":redimensioner_image(photo,400,400),
+                          "photo":redimensioner_image(photo,500,500),
                           "dateNaissance":date_naissance,
                         }
                         profile=UserProfile(**data)
@@ -187,8 +187,11 @@ class Registration(View):
 class HomePage(LoginRequiredMixin, View):
 
   def get(self, request):
-
-    return render(request, "profile.html")
+    data={}
+    data['profile']=request.user.user_profile
+    data['rooms']=Rooms.objects.all()
+    data['c_room']=data['rooms'][0]
+    return render(request, "home.html",data)
 
 
 def deconnexion(request):
